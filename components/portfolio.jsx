@@ -21,11 +21,13 @@ const Portfolio = () => {
           ))}
         </ul>
 
+
+
         <h3>Projects:</h3>
         <ul>
           {projects.map((project, index) => (
             <li key={index}>
-              <h4>{project.title}</h4>
+              <h4 className="font-bold italic text-blue-600">{project.title}</h4> {/* q6 */}
               <p>{project.description}</p>
               <a href={project.link} target="_blank" rel="noopener noreferrer">
                 View on GitHub
@@ -34,8 +36,17 @@ const Portfolio = () => {
           ))}
         </ul>
       </div>
+      <div className="border border-gray-500 p-2 bg-gray-100 rounded-md shadow-md mt-2 mb-2"> {/* q17 */}
+        <h3>Skills:</h3>
+        <ul>
+          {skills.map((skill, index) => (
+            <li key={index}>{skill}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
+       
 
 export default Portfolio;

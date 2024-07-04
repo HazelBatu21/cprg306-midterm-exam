@@ -11,14 +11,15 @@ const FormExam = () => {
   };
 
   const handleChange2 = (event) => {
-    setSurname(event.target.value);
+    setSurname(event.target.value); //q12 event handler that updates the surname state variable
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event) => { //q4 default behavior
+    event.preventDefault(); // prevent default form submission behavior
     if (fullname === "") {
-      setFullname(firstname + " " + surname);
+      setFullname(firstname + " " + surname); //q9 set variable fullname with firstname and surname
     } else {
-      setFullname("");
+      setFullname(""); //q14 when fullname is not an empty string, it is set to an empty string
     }
 
     console.log("name: ", firstname, surname);
@@ -50,7 +51,7 @@ const FormExam = () => {
               placeholder="Enter you surname"
               value={surname}
               onChange={handleChange2}
-              className="text-center"
+              className="text-center" //q5 applied in the input fields
             />
           </div>
           <div className="flex item-center justify-center py-2">

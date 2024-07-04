@@ -7,7 +7,7 @@ const InteractivityExam = ({ list }) => {
 
   useEffect(() => {
     setWord((prevName) => prevName.toUpperCase());
-  }, []); // q15 add the variable name to the depency array
+  }, [word]); // q15 add the variable name to the depency array
 
   const handleNameChange = (event) => {
     setWord(event.target.value);
@@ -15,16 +15,16 @@ const InteractivityExam = ({ list }) => {
   };
 
   const handleSubmit = (event) => {
-    //event.preventDefault();    ----- q3 remove to resolve the error
+    //event.preventDefault();    //----- q3 remove to resolve the error
   };
 
   const getWord = () => {
-    setWord(word + "t");
+    setNewWord(word + "t"); //adjust conditional logit to word length
   };
 
   return (
     <div>
-      {word && <div>{word}</div>} {/*q13: {word.length >= 3 && <div>{word}</div>} - adjusted conditional render logic*/}
+      {word.length >= 3 && <div>{word}</div>} {/*q13: { replaced this {word && <div>{word}</div>}- adjusted conditional render logic*/}
       <div className="">
         <form onSubmit={handleSubmit} className="">
           <div className="p-2 bg-green-200">
@@ -49,8 +49,8 @@ const InteractivityExam = ({ list }) => {
       </div>
       {word === "show list" && (
         <div>
-          {list.map((item, index) => (  //q19: use item.id as the key attribute
-            <div key={index}>{item.name}</div>
+          {list.map((item) => (  //q19: use item.id as the key attribute
+            <div key={item.id}>{item.name}</div> // change index to item.id
           ))}
         </div>
       )}

@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 
 const InteractivityExam = ({ list }) => {
   const [word, setWord] = useState("");
-  const [newWord, setNewWord] = useState(word);
+  const [newWord, setNewWord] = useState(word);// q8 inital value of "newWord" is an empty string
 
   useEffect(() => {
     setWord((prevName) => prevName.toUpperCase());
-  }, []);
+  }, []); // q15 add the variable name to the depency array
 
   const handleNameChange = (event) => {
     setWord(event.target.value);
@@ -15,7 +15,7 @@ const InteractivityExam = ({ list }) => {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    //event.preventDefault();    ----- q3 remove to resolve the error
   };
 
   const getWord = () => {
@@ -24,7 +24,7 @@ const InteractivityExam = ({ list }) => {
 
   return (
     <div>
-      {word && <div>{word}</div>}
+      {word && <div>{word}</div>} {/*q13: {word.length >= 3 && <div>{word}</div>} - adjusted conditional render logic*/}
       <div className="">
         <form onSubmit={handleSubmit} className="">
           <div className="p-2 bg-green-200">
@@ -49,7 +49,7 @@ const InteractivityExam = ({ list }) => {
       </div>
       {word === "show list" && (
         <div>
-          {list.map((item, index) => (
+          {list.map((item, index) => (  //q19: use item.id as the key attribute
             <div key={index}>{item.name}</div>
           ))}
         </div>
